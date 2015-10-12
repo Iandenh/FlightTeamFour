@@ -23,7 +23,7 @@ public class FlightTeamFour {
         System.out.println("hallo");
         boolean running = true;
         while(running){
-            
+            System.out.println("hallo");
         }
     }
     
