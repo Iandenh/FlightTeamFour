@@ -10,15 +10,21 @@ package flightteamfour;
  * @author ian
  */
 public class FlightTeamFour {
-    private static String[] airpots = {"AMS", "LAX", "PAR"};
+    private static Vliegveld[] airpots = {
+        new Vliegveld("AMS"),
+        new Vliegveld("LAX"),
+        new Vliegveld("PAR")
+    };
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("hallo");
-        
-        
+        boolean running = true;
+        while(running){
+            
+        }
     }
     
 }
