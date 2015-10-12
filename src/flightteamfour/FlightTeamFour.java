@@ -10,12 +10,15 @@ package flightteamfour;
  * @author ian
  */
 public class FlightTeamFour {
-
+    private static String[] airpots = {"AMS", "LAX", "PAR"};
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        System.out.println("hallo");
+        
+        
     }
     
 }
