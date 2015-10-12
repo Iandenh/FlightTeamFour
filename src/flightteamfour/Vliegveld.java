@@ -10,5 +10,8 @@ package flightteamfour;
  * @author ian
  */
 public class Vliegveld {
-    
+    private String naam;
+    public Vliegveld (String naam){
+        this.naam = naam;
+    }
 }
