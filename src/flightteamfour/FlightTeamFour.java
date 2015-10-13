@@ -28,11 +28,15 @@ public class FlightTeamFour {
     
     public static void menu(){
         
-        System.out.println("Menu");
-        System.out.println("1. Speluitleg");
-        System.out.println("2. Start");
-        System.out.println("3. Score");
-        System.out.println("4. Exit");
+        System.out.println("|           Menu:             |");
+        System.out.println("|-----------------------------|");
+        System.out.println("| 1.) Speluitleg              |");
+        System.out.println("| 2.) Start                   |");
+        System.out.println("| 3.) Score                   |");
+        System.out.println("| 4.) Exit                    |");
+        System.out.println("|                         v1.0|");
+        System.out.println("-------------------------------");
+        System.out.print("option: ");
     }
     
     public static void spelUitleg(){
@@ -62,15 +66,17 @@ public class FlightTeamFour {
         System.out.println("\t# Jouw doel om zoveel mogelijk winst te maken\t# \n");
         
         
-        menu();
+       menu();
         
         while(running){
         
+        
+            
         if(in.next().equals("1")){
            spelUitleg();
         if(in.next().equals("6")){
             menu();
-        }if(in.next().equals("6")){
+        }if(!in.next().equals("6")){
             System.out.println("Wrong input, please try again.");
             
                 }
