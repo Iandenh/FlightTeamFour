@@ -29,21 +29,17 @@ public class FlightTeamFour {
     
     public static void menu(){
         
-        System.out.println("|           Menu:             |");
-        System.out.println("|-----------------------------|");
-        System.out.println("| 1.) Speluitleg              |");
-        System.out.println("| 2.) Start                   |");
-        System.out.println("| 3.) Score                   |");
-        System.out.println("| 4.) Highscore               |");
-        System.out.println("| 5.) Exit                    |");
-        System.out.println("|                         v1.0|");
-        System.out.println("-------------------------------");
+        System.out.println("\t       |           Menu:             |");
+        System.out.println("\t       |-----------------------------|");
+        System.out.println("\t       | 1.) Speluitleg              |");
+        System.out.println("\t       | 2.) Start                   |");
+        System.out.println("\t       | 3.) Score                   |");
+        System.out.println("\t       | 4.) Highscore               |");
+        System.out.println("\t       | 5.) Exit                    |");
+        System.out.println("\t       |                         v1.0|");
+        System.out.println("\t       -------------------------------");
         System.out.print("option: ");
         
-        
-        
-        
-       
     }
     
     public static void spelUitleg(){
@@ -57,8 +53,8 @@ public class FlightTeamFour {
             
         System.out.println("\t# Elke nieuwe ronde zal jouw score bijgehouden worden. Door dit op te vragen klik je op menu optie 3.");
         System.out.println("\t# Elke rond begin je met geld, de bedoeling is om uiteindelijk zoveel mogelijk winst te maken.");
-        System.out.println("\t# Aan het eind van de ronde word op basis van jou winst de score bijgehouden, hoe meer winst hoe meer score punten het opleverd.");
-        System.out.print("Klik 6 om terug te keren naar het menu ");
+        System.out.println("\t# Aan het eind van de ronde word op basis van jou winst de score bijgehouden, hoe meer winst hoe meer score punten het opleverd./n");
+        System.out.print("Klik 6 om terug te keren naar het menu: ");
         
         
     }
@@ -69,9 +65,13 @@ public class FlightTeamFour {
         
         boolean running = true;
         
-        System.out.println("\t#    Welkom bij het FlightFourTeam spel!\t# \n");
+        //Begin scherm
+        System.out.println("\t#    Welkom bij het FlightFourTeam spel!\t#| ");
+        System.out.println("\t  -----------------------------------------");
         System.out.println("\t# Jouw doel om zoveel mogelijk winst te maken\t# \n");
        
+        //Menu ALLEEN SPELUITLEG WERKT NU.
+        
         menu();
         display: while(true){
         
@@ -84,8 +84,9 @@ public class FlightTeamFour {
             case 1:
               spelUitleg();
              if(in.nextInt() == 6){
-                 
+                
                  menu();
+                 break;
              } 
             case 2:
               // Start game
