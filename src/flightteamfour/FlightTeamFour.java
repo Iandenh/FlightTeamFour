@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class FlightTeamFour {
     
+    Scanner in = new Scanner(System.in);
     
     
     public double score = 0; // Score wat de speler kan behalen.
@@ -33,10 +34,16 @@ public class FlightTeamFour {
         System.out.println("| 1.) Speluitleg              |");
         System.out.println("| 2.) Start                   |");
         System.out.println("| 3.) Score                   |");
-        System.out.println("| 4.) Exit                    |");
+        System.out.println("| 4.) Highscore               |");
+        System.out.println("| 5.) Exit                    |");
         System.out.println("|                         v1.0|");
         System.out.println("-------------------------------");
         System.out.print("option: ");
+        
+        
+        
+        
+       
     }
     
     public static void spelUitleg(){
@@ -51,7 +58,7 @@ public class FlightTeamFour {
         System.out.println("\t# Elke nieuwe ronde zal jouw score bijgehouden worden. Door dit op te vragen klik je op menu optie 3.");
         System.out.println("\t# Elke rond begin je met geld, de bedoeling is om uiteindelijk zoveel mogelijk winst te maken.");
         System.out.println("\t# Aan het eind van de ronde word op basis van jou winst de score bijgehouden, hoe meer winst hoe meer score punten het opleverd.");
-        System.out.println("Klik 6 om terug te keren naar het menu");
+        System.out.print("Klik 6 om terug te keren naar het menu ");
         
         
     }
@@ -64,33 +71,71 @@ public class FlightTeamFour {
         
         System.out.println("\t#    Welkom bij het FlightFourTeam spel!\t# \n");
         System.out.println("\t# Jouw doel om zoveel mogelijk winst te maken\t# \n");
+       
+        menu();
+        display: while(true){
         
         
-       menu();
+        int selection = in.nextInt();
+        in.nextLine();
         
-        while(running){
-        
-        
+        switch (selection){
             
-        if(in.next().equals("1")){
-           spelUitleg();
-        if(in.next().equals("6")){
-            menu();
-        }if(!in.next().equals("6")){
-            System.out.println("Wrong input, please try again.");
-            
-                }
+            case 1:
+              spelUitleg();
+             if(in.nextInt() == 6){
+                 
+                 menu();
+             } 
+            case 2:
+              // Start game
+              break;
+            case 3:
+              //Score
+              break;
+            case 4:
+              //highscore
+              break;
+            case 5:
+              //exit game
+              break;
+            default:
+                System.out.println("Please enter a valid selection");
+                break;
+                
             }
         }
             
-            
-        running = false;
-            
-        while(running){
-            
-        }
     }
+            
 }
+          
+             
+        
+        
+    
+
+
+
+       
+        
+        
+        
+            
+        
+            
+                
+            
+       
+            
+            
+        
+            
+        
+           
+       
+    
+
 
 
             
