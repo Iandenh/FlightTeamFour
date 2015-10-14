@@ -28,8 +28,8 @@ public class FlightTeamFour {
         System.out.println("\t       |-----------------------------|");
         System.out.println("\t       | 1.) Speluitleg              |");
         System.out.println("\t       | 2.) Start                   |");
-        System.out.println("\t       | 3.) Score                   |");
-        System.out.println("\t       | 4.) Highscore               |");
+        System.out.println("\t       | 3.) Highscore & geld        |");
+        System.out.println("\t       | 4.) Vliegtuig kopen         |");
         System.out.println("\t       | 5.) Exit                    |");
         System.out.println("\t       |                         v1.0|");
         System.out.println("\t       -------------------------------");
@@ -46,9 +46,10 @@ public class FlightTeamFour {
                 + "\t# Ook zijn er vrachtvliegtuigen, en kan er vracht vervoerd worden.\n "
                 + "\t# Het is niet mogelijk om en passagiers en vracht in hetzelfde vliegtuig te vervoeren. \n\n");
 
-        System.out.println("\t# Elke nieuwe ronde zal jouw score bijgehouden worden. Door dit op te vragen klik je op menu optie 3.");
+        System.out.println("\t# Elke nieuwe ronde zal jouw score bijgehouden worden en worden meegenomen naar de volgende rondes");
         System.out.println("\t# Elke rond begin je met geld, de bedoeling is om uiteindelijk zoveel mogelijk winst te maken.");
-        System.out.println("\t# Aan het eind van de ronde word op basis van jou winst de score bijgehouden, hoe meer winst hoe meer score punten het opleverd.\n");
+        System.out.println("\t# Aan het eind van de ronde word op basis van jou winst de score bijgehouden, hoe meer winst hoe meer score punten het opleverd.");
+        System.out.println("\t# Door jou winst is het ook mogelijk om een nieuw vliegtuig te kopen.\n");
         System.out.print("Klik 6 om terug te keren naar het menu: \n");
 
         boolean running = true;
