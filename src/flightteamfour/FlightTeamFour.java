@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class FlightTeamFour {
 
-    Scanner in = new Scanner(System.in);
+    private static Scanner in = new Scanner(System.in);
 
     public double score = 0; // Score wat de speler kan behalen.
     public int ronde = 1; // Aantal rondes - max 8.
@@ -51,11 +51,25 @@ public class FlightTeamFour {
         System.out.println("\t# Aan het eind van de ronde word op basis van jou winst de score bijgehouden, hoe meer winst hoe meer score punten het opleverd./n");
         System.out.print("Klik 6 om terug te keren naar het menu: ");
 
+        boolean running = true;
+        while(running){
+            
+            if (in.hasNextInt() && in.nextInt() == 6) {
+                running = false;
+                menu();
+                return;
+            } else {
+                System.out.println("Please enter a valid selection");
+                
+            in.nextLine();
+            }
+            
+        }
     }
 
     public static void main(String[] args) {
 
-        Scanner in = new Scanner(System.in); // Input van de speler
+        
 
         boolean running = true;
 
@@ -76,11 +90,7 @@ public class FlightTeamFour {
 
                     case 1:
                         spelUitleg();
-                        if (in.nextInt() == 6) {
-
-                            menu();
-                            break;
-                        }
+                        break;
                     case 2:
                         // Start game
                         break;
