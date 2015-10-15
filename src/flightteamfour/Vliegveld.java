@@ -9,8 +9,10 @@ public class Vliegveld {
     public static int xLocatie;
     public static int yLocatie;
     
-    
-    
-    
+    Vliegveld(){
+       
+        
+        
+        }   
     }
 

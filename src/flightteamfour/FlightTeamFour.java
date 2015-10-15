@@ -12,8 +12,10 @@ public class FlightTeamFour {
 
     public double score = 0; // Score wat de speler kan behalen.
     public int ronde = 1; // Aantal rondes - max 8.
-    public double geld = 0; // Geld wat de speler per ronde krijgt.
+    public int geld = 700; // Geld wat de speler per ronde krijgt.
 
+   
+    
     public static void nieuweRonde() {
 
     }
@@ -70,8 +72,8 @@ public class FlightTeamFour {
 
     public static void main(String[] args) {
 
+        Vliegtuig vliegobj = new Vliegtuig();   
         
-
         boolean running = true;
 
         //Begin scherm
@@ -96,10 +98,11 @@ public class FlightTeamFour {
                         // Start game
                         break;
                     case 3:
-                        //Score
+                        //Highscore & geld
                         break;
                     case 4:
-                        //highscore
+                        //Vliegtuig kopen
+                        vliegobj.vliegtuigKopen();
                         break;
                     case 5:
                         running = false;
