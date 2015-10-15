@@ -6,23 +6,24 @@ import java.util.Scanner;
 
 public class Vliegtuig extends FlightTeamFour{
     
-    public String Soort;
-    private String Passagiersvliegtuig;
-    public int maxVrachtPassagiers;
-    public Boolean isGetankt;
+   
+    public double maxPassagiers;
+    public double maxVracht;
+    public double fuelCapacity;
+    
     
     Scanner in = new Scanner(System.in);
     
-    Vliegtuig(){
+   Vliegtuig(){
+       
+   }
+   
+    Vliegtuig(double a, double b, double c){
         
-    }
-    
-    
-    Vliegtuig(String a, int b, Boolean c){
-        
-        a = Soort;
-        b = maxVrachtPassagiers;
-        c = isGetankt;
+       
+        a = maxPassagiers; //number of people (MAX)
+        b = maxVracht;     //KG vracht (Max)
+        c = fuelCapacity;  //Liters 
     }
     
     
@@ -55,7 +56,7 @@ public class Vliegtuig extends FlightTeamFour{
         if(in.hasNextInt() && in.nextInt() == 1){
             
             System.out.println("Je kan kiezen uit de volgende Passagiersvliegtuigen: ");
-            System.out.println("1.) 7.000$    Jet5000     \t #De Jet5000 kan maar lieft 400 passagiers meenemen en heeft een mooi uiterlijk.");
+            System.out.println("1.) 7.000$    Jet5000     \t #De Jet5000 kan maar lieft 400 passagiers meenemen en heeft een 1000 Liter tank");
             System.out.println("2.) $15.000   SuperJet300 \t #De SuperJet300 kan maar liefst 500 passagiers meenemen en heeft een turbo motor.");
             System.out.println("3.) $20.000   Airbus5000  \t #De Airbus5000 heeft maar liefst ruimte voor 850 personen!\n");
             System.out.print("Option: ");
@@ -65,12 +66,12 @@ public class Vliegtuig extends FlightTeamFour{
      //if(geld >= 7000){
              
                 System.out.println("Je hebt de Jet5000 gekocht");
-                Vliegtuig Jet5000 = new Vliegtuig(Passagiersvliegtuig, 400, false);
+                Vliegtuig Jet5000 = new Vliegtuig(400, 400, 1000);
                 geld = geld - 7000;
                 
         }else if(in.hasNextInt() && in.nextInt() == 1 && geld < 7000){
                     
-                    System.out.println("Oops! Not enough money!");
+                    System.out.println("Oops! Not enough money");
                 
                 }
                 

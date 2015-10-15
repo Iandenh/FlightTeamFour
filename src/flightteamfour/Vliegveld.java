@@ -5,14 +5,16 @@ package flightteamfour;
 public class Vliegveld {
     
     public static double aantalPassagiers;
-    public static String Naam;
-    public static int xLocatie;
-    public static int yLocatie;
+    public static double aantalVracht;
     
-    Vliegveld(){
+    
+  
+    
+    
+    Vliegveld(double a, double b){
        
-        
-        
+        a = aantalPassagiers;
+        b = aantalVracht;
         }   
     }
 

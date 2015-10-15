@@ -16,8 +16,26 @@ public class FlightTeamFour {
    
     
     public static void start() {
-
         
+        
+        Vliegveld Amsterdam = new Vliegveld(Math.random() * 1000 + 35, Math.random() * 300);
+        Vliegveld Parijs    = new Vliegveld(Math.random() * 1000 + 35, Math.random() * 300);
+        Vliegveld Berlijn   = new Vliegveld(Math.random() * 1000 + 35, Math.random() * 300);
+        Vliegveld LosAngeles= new Vliegveld(Math.random() * 1000 + 35, Math.random() * 300);
+        Vliegveld NewYork   = new Vliegveld(Math.random() * 1000 + 35, Math.random() * 300);
+        Vliegveld Londen    = new Vliegveld(Math.random() * 1000 + 35, Math.random() * 300);
+        Vliegveld Dubai     = new Vliegveld(Math.random() * 3000 + 35, Math.random() * 300);
+        
+        Vliegtuig Boeing737 = new Vliegtuig(300, 1000, 500);
+        Vliegtuig Boeing747 = new Vliegtuig(450, 1200, 700);
+        Vliegtuig Boeing777 = new Vliegtuig(600, 1800, 1000);
+        Vliegtuig Airbus380 = new Vliegtuig(700, 3000, 2000);
+        Vliegtuig ITyet     = new Vliegtuig(1000, 5000, 4000);
+        
+        
+        
+        
+       
         
     }
 
@@ -31,9 +49,7 @@ public class FlightTeamFour {
         System.out.println("\t       |-----------------------------|");
         System.out.println("\t       | 1.) Speluitleg              |");
         System.out.println("\t       | 2.) Start                   |");
- //       System.out.println("\t       | 3.) Highscore & geld        |");
-//        System.out.println("\t       | 4.) Vliegtuig kopen         |");
-        System.out.println("\t       | 3. Exit                    |");
+        System.out.println("\t       | 3. Exit                     |");
         System.out.println("\t       |                         v1.0|");
         System.out.println("\t       -------------------------------");
         System.out.print("option: ");
@@ -49,10 +65,9 @@ public class FlightTeamFour {
     + "\t# Ook zijn er vrachtvliegtuigen, en kan er vracht vervoerd worden.\n "
     + "\t# Het is niet mogelijk om en passagiers en vracht in hetzelfde vliegtuig te vervoeren. \n\n");
 
-        System.out.println("\t# Elke nieuwe ronde zal jouw score bijgehouden worden en worden meegenomen naar de volgende rondes");
         System.out.println("\t# Elke rond begin je met geld, de bedoeling is om uiteindelijk zoveel mogelijk winst te maken.");
-        System.out.println("\t# Aan het eind van de ronde word op basis van jou winst de score bijgehouden, hoe meer winst hoe meer score punten het opleverd.");
         System.out.println("\t# Door jou winst is het ook mogelijk om een nieuw vliegtuig te kopen.\n");
+        
         System.out.print("Klik 6 om terug te keren naar het menu: \n");
 
             boolean running = true;
