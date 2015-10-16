@@ -25,7 +25,7 @@ public class FlightTeamFour {
         vliegvelden.add( new Vliegveld("RTM", Math.random() * 1000 + 35, Math.random() * 300));// Rotterdam
         vliegvelden.add( new Vliegveld("SXF", Math.random() * 1000 + 35, Math.random() * 300));// Berlijn
         vliegvelden.add( new Vliegveld("JFK", Math.random() * 1000 + 35, Math.random() * 300));//new York
-        vliegvelden.add( new Vliegveld("LCY", Math.random() * 3000 + 35, Math.random() * 300)); //Londen
+        vliegvelden.add( new Vliegveld("LHR", Math.random() * 3000 + 35, Math.random() * 300)); //Londen
         
         vliegtuigen.add(new Vliegtuig("Boeing737",300, 1000, 500));
         vliegtuigen.add(new Vliegtuig("Boeing747", 450, 1200, 700));
