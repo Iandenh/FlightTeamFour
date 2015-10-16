@@ -1,5 +1,6 @@
 package flightteamfour;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -13,29 +14,31 @@ public class FlightTeamFour {
     public int ronde = 1; // Aantal rondes - max 8.
     public int geld = 0; // Geld wat de speler per ronde krijgt.
 
-   
-    
+    public static ArrayList<Vliegtuig> vliegtuigen = new ArrayList<Vliegtuig>();
+    public static ArrayList<Vliegveld> vliegvelden = new ArrayList<Vliegveld>();
     public static void start() {
         
         
-        Vliegveld Amsterdam = new Vliegveld(Math.random() * 1000 + 35, Math.random() * 300);
-        Vliegveld Parijs    = new Vliegveld(Math.random() * 1000 + 35, Math.random() * 300);
-        Vliegveld Berlijn   = new Vliegveld(Math.random() * 1000 + 35, Math.random() * 300);
-        Vliegveld LosAngeles= new Vliegveld(Math.random() * 1000 + 35, Math.random() * 300);
-        Vliegveld NewYork   = new Vliegveld(Math.random() * 1000 + 35, Math.random() * 300);
-        Vliegveld Londen    = new Vliegveld(Math.random() * 1000 + 35, Math.random() * 300);
-        Vliegveld Dubai     = new Vliegveld(Math.random() * 3000 + 35, Math.random() * 300);
+        vliegvelden.add( new Vliegveld("AMS", Math.random() * 1000 + 35, Math.random() * 300));//Amsterdam
+        vliegvelden.add( new Vliegveld("LAX", Math.random() * 1000 + 35, Math.random() * 300));//Los angeles
+        vliegvelden.add( new Vliegveld("PAR", Math.random() * 1000 + 35, Math.random() * 300));// parijs
+        vliegvelden.add( new Vliegveld("RTM", Math.random() * 1000 + 35, Math.random() * 300));// Rotterdam
+        vliegvelden.add( new Vliegveld("SXF", Math.random() * 1000 + 35, Math.random() * 300));// Berlijn
+        vliegvelden.add( new Vliegveld("JFK", Math.random() * 1000 + 35, Math.random() * 300));//new York
+        vliegvelden.add( new Vliegveld("LCY", Math.random() * 3000 + 35, Math.random() * 300)); //Londen
         
-        Vliegtuig Boeing737 = new Vliegtuig(300, 1000, 500);
-        Vliegtuig Boeing747 = new Vliegtuig(450, 1200, 700);
-        Vliegtuig Boeing777 = new Vliegtuig(600, 1800, 1000);
-        Vliegtuig Airbus380 = new Vliegtuig(700, 3000, 2000);
-        Vliegtuig ITyet     = new Vliegtuig(1000, 5000, 4000);
+        vliegtuigen.add(new Vliegtuig("Boeing737",300, 1000, 500));
+        vliegtuigen.add(new Vliegtuig("Boeing747", 450, 1200, 700));
+        vliegtuigen.add(new Vliegtuig("Boeing777", 600, 1800, 1000));
+        vliegtuigen.add(new Vliegtuig("Airbus380", 700, 3000, 2000));
+        vliegtuigen.add(new Vliegtuig("ITyet", 1000, 5000, 4000));
         
-        
-        
-        
-       
+        for(Vliegtuig vliegtuig: vliegtuigen){
+            System.out.println(vliegtuig.getName());
+            vliegtuig.setVliegveld(vliegvelden.get((int) (Math.random()*vliegvelden.size())));//Neerzetten op random vliegveld om te beginnen
+            System.out.println(vliegtuig.getVliegveld().getName());
+        }
+        System.out.println("test");
         
     }
 
@@ -113,6 +116,7 @@ public class FlightTeamFour {
                         break;
                     case 2:
                                           // Start game
+                        start();
                         break;
                     case 3:
                         running = false; // Sluit het spel af

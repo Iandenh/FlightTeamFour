@@ -7,9 +7,19 @@ import java.util.Scanner;
 public class Vliegtuig extends FlightTeamFour{
     
    
-    public double maxPassagiers;
-    public double maxVracht;
-    public double fuelCapacity;
+    private double maxPassagiers;
+    private double maxVracht;
+    private double fuelCapacity;
+    private String name;
+    private Vliegveld vliegveld;
+
+    public Vliegveld getVliegveld() {
+        return vliegveld;
+    }
+
+    public void setVliegveld(Vliegveld vliegveld) {
+        this.vliegveld = vliegveld;
+    }
     
     
     Scanner in = new Scanner(System.in);
@@ -18,12 +28,15 @@ public class Vliegtuig extends FlightTeamFour{
        
    }
    
-    Vliegtuig(double a, double b, double c){
-        
-       
-        a = maxPassagiers; //number of people (MAX)
-        b = maxVracht;     //KG vracht (Max)
-        c = fuelCapacity;  //Liters 
+    Vliegtuig(String name, double maxPassagiers, double maxVracht, double fuelCapacity){
+        this.name = name;
+        this.maxPassagiers = maxPassagiers; //number of people (MAX)
+        this.maxVracht = maxVracht;     //KG vracht (Max)
+        this.fuelCapacity = fuelCapacity;  //Liters 
+    }
+
+    public String getName() {
+        return name;
     }
     
     
@@ -66,7 +79,7 @@ public class Vliegtuig extends FlightTeamFour{
      //if(geld >= 7000){
              
                 System.out.println("Je hebt de Jet5000 gekocht");
-                Vliegtuig Jet5000 = new Vliegtuig(400, 400, 1000);
+                FlightTeamFour.vliegtuigen.add(new Vliegtuig("Jet5000", 400, 400, 1000));
                 geld = geld - 7000;
                 
         }else if(in.hasNextInt() && in.nextInt() == 1 && geld < 7000){

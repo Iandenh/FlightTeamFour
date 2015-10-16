@@ -4,17 +4,30 @@ package flightteamfour;
 
 public class Vliegveld {
     
-    public static double aantalPassagiers;
-    public static double aantalVracht;
-    
+    private double aantalPassagiers;
+    private double aantalVracht;
+    private String name;
+
+    public double getAantalPassagiers() {
+        return aantalPassagiers;
+    }
+
+    public double getAantalVracht() {
+        return aantalVracht;
+    }
+
+    public String getName() {
+        return name;
+    }
     
   
     
     
-    Vliegveld(double a, double b){
-       
-        a = aantalPassagiers;
-        b = aantalVracht;
-        }   
-    }
+    Vliegveld(String name, double aantalPassagiers, double aantalVracht){
+        this.name = name;
+        this.aantalPassagiers = aantalPassagiers;
+        this.aantalVracht = aantalVracht;
+    }  
+    
+}
 
