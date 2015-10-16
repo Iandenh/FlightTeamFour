@@ -38,7 +38,6 @@ public class FlightTeamFour {
             vliegtuig.setVliegveld(vliegvelden.get((int) (Math.random()*vliegvelden.size())));//Neerzetten op random vliegveld om te beginnen
             System.out.println(vliegtuig.getVliegveld().getName());
         }
-        System.out.println("test");
         
     }
 
