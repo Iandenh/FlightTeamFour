@@ -9,10 +9,10 @@ import java.util.Scanner;
  */
 public class FlightTeamFour {
 
-    private static Scanner in = new Scanner(System.in);
+    public static Scanner in = new Scanner(System.in);
 
     public int ronde = 1; // Aantal rondes - max 8.
-    public int geld = 0; // Geld wat de speler per ronde krijgt.
+    public static int geld = 0; // Geld wat de speler per ronde krijgt.
 
     public static ArrayList<Vliegtuig> vliegtuigen = new ArrayList<Vliegtuig>();
     public static ArrayList<Vliegveld> vliegvelden = new ArrayList<Vliegveld>();
@@ -115,6 +115,7 @@ public class FlightTeamFour {
                         break;
                     case 2:
                                           // Start game
+                        Vliegtuig.vliegtuigKopen();
                         start();
                         break;
                     case 3:
