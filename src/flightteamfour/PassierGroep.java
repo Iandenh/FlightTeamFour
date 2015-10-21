@@ -2,7 +2,7 @@
 package flightteamfour;
 
 
-public class passierGroep {
+public class PassierGroep {
     
     public int passagiers;
     public Vliegveld bestemming;

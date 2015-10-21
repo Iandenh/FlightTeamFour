@@ -16,9 +16,10 @@ public class FlightTeamFour {
 
     public static ArrayList<Vliegtuig> vliegtuigen = new ArrayList<Vliegtuig>();
     public static ArrayList<Vliegveld> vliegvelden = new ArrayList<Vliegveld>();
+    public static ArrayList<PassierGroep> passiers = new ArrayList<PassierGroep>();
     public static void start() {
         
-        
+        //Voorbereidingen
         vliegvelden.add( new Vliegveld("AMS", Math.random() * 1000 + 35, Math.random() * 300));//Amsterdam
         vliegvelden.add( new Vliegveld("LAX", Math.random() * 1000 + 35, Math.random() * 300));//Los angeles
         vliegvelden.add( new Vliegveld("PAR", Math.random() * 1000 + 35, Math.random() * 300));// parijs
@@ -27,11 +28,11 @@ public class FlightTeamFour {
         vliegvelden.add( new Vliegveld("JFK", Math.random() * 1000 + 35, Math.random() * 300));//new York
         vliegvelden.add( new Vliegveld("LHR", Math.random() * 3000 + 35, Math.random() * 300)); //Londen
         
-        vliegtuigen.add(new Vliegtuig("Boeing737",300, 1000, 500));
-        vliegtuigen.add(new Vliegtuig("Boeing747", 450, 1200, 700));
-        vliegtuigen.add(new Vliegtuig("Boeing777", 600, 1800, 1000));
-        vliegtuigen.add(new Vliegtuig("Airbus380", 700, 3000, 2000));
-        vliegtuigen.add(new Vliegtuig("ITyet", 1000, 5000, 4000));
+        vliegtuigen.add(new PassiersVliegtuig("Boeing737",300, 1000, 500));
+        vliegtuigen.add(new PassiersVliegtuig("Boeing747", 450, 1200, 700));
+        vliegtuigen.add(new PassiersVliegtuig("Boeing777", 600, 1800, 1000));
+        vliegtuigen.add(new PassiersVliegtuig("Airbus380", 700, 3000, 2000));
+        vliegtuigen.add(new VrachtVliegtuig("ITyet", 1000, 5000, 4000));
         
         for(Vliegtuig vliegtuig: vliegtuigen){
             System.out.println(vliegtuig.getName());
@@ -39,6 +40,15 @@ public class FlightTeamFour {
             System.out.println(vliegtuig.getVliegveld().getName());
         }
         
+        
+        System.out.println("\t       |           Menu:             |");
+        System.out.println("\t       |-----------------------------|");
+        System.out.println("\t       | 1.) Vliegtuig kopen         |");
+        System.out.println("\t       | 2.) Vlucht inplannen        |");
+        System.out.println("\t       | 3. Exit                     |");
+        System.out.println("\t       |                         v1.0|");
+        System.out.println("\t       -------------------------------");
+        System.out.print("option: ");
     }
 
     public static void vluchtInplanenn() {
@@ -79,11 +89,11 @@ public class FlightTeamFour {
                     running = false;
                     menu();
                     return;
-                        } else {
-                         System.out.println("Please enter a valid selection");
-                
-                            in.nextLine();
-                        }
+                } else {
+                 System.out.println("Please enter a valid selection");
+
+                    in.nextLine();
+                }
             
             }
     }
@@ -115,7 +125,6 @@ public class FlightTeamFour {
                         break;
                     case 2:
                                           // Start game
-                        Vliegtuig.vliegtuigKopen();
                         start();
                         break;
                     case 3:
@@ -134,4 +143,7 @@ public class FlightTeamFour {
 
     }
 
+    private static void randomPassiers(){
+        
+    }
 }

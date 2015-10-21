@@ -4,12 +4,13 @@ import java.util.Scanner;
 
 public class Vliegtuig extends FlightTeamFour {
 
-    private double maxPassagiers;
-    private double maxVracht;
-    private double fuelCapacity;
-    private String name;
-    private Vliegveld vliegveld;
+    protected double maxPassagiers;
+    protected double maxVracht;
+    protected double fuelCapacity;
+    protected String name;
+    protected Vliegveld vliegveld;
 
+    private static Scanner in = new Scanner(System.in);
     public Vliegveld getVliegveld() {
         return vliegveld;
     }
@@ -18,7 +19,6 @@ public class Vliegtuig extends FlightTeamFour {
         this.vliegveld = vliegveld;
     }
 
-    Scanner in = new Scanner(System.in);
 
     Vliegtuig() {
 
@@ -44,7 +44,6 @@ public class Vliegtuig extends FlightTeamFour {
     }
 
     public static void vliegtuigKopen() {
-        Scanner in = FlightTeamFour.in;
         System.out.println("               Hallo speler!");
         System.out.println("Hier is het mogelijk om een vliegtuig aan te schaffen.");
         System.out.println("Jou geld bedraagt: " + FlightTeamFour.geld + "\n");
