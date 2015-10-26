@@ -16,6 +16,10 @@ public class Vliegveld {
         return aantalPassagiers;
     }
 
+    public ArrayList<PassiersGroep> getPassiersGroep() {
+        return passiersGroep;
+    }
+
     public double getAantalVracht() {
         return aantalVracht;
     }

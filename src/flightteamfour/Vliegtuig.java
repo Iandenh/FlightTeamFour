@@ -11,6 +11,10 @@ public class Vliegtuig extends FlightTeamFour {
     protected Vliegveld vliegveld;
     protected Vlucht vlucht;
 
+    public Vlucht getVlucht() {
+        return vlucht;
+    }
+
     public void setVlucht(Vlucht vlucht) {
         this.vlucht = vlucht;
     }
