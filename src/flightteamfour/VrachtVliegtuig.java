@@ -11,7 +11,7 @@ package flightteamfour;
  */
 public class VrachtVliegtuig extends Vliegtuig{
 
-    public VrachtVliegtuig(String name, double maxPassagiers, double maxVracht, double fuelCapacity) {
+    public VrachtVliegtuig(String name, int maxPassagiers, double maxVracht, double fuelCapacity) {
         super(name, maxPassagiers, maxVracht, fuelCapacity);
     }
     

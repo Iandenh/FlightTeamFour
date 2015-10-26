@@ -12,21 +12,22 @@ public class FlightTeamFour {
     public static Scanner in = new Scanner(System.in);
 
     public int ronde = 1; // Aantal rondes - max 8.
-    public static int geld = 0; // Geld wat de speler per ronde krijgt.
+    public static int geld = 900000; // Geld wat de speler per ronde krijgt.
 
     public static ArrayList<Vliegtuig> vliegtuigen = new ArrayList<Vliegtuig>();
     public static ArrayList<Vliegveld> vliegvelden = new ArrayList<Vliegveld>();
-    public static ArrayList<PassierGroep> passiers = new ArrayList<PassierGroep>();
+    public static ArrayList<PassiersGroep> passiers = new ArrayList<PassiersGroep>();
     public static void start() {
         
         //Voorbereidingen
-        vliegvelden.add( new Vliegveld("AMS", Math.random() * 1000 + 35, Math.random() * 300));//Amsterdam
-        vliegvelden.add( new Vliegveld("LAX", Math.random() * 1000 + 35, Math.random() * 300));//Los angeles
-        vliegvelden.add( new Vliegveld("PAR", Math.random() * 1000 + 35, Math.random() * 300));// parijs
-        vliegvelden.add( new Vliegveld("RTM", Math.random() * 1000 + 35, Math.random() * 300));// Rotterdam
-        vliegvelden.add( new Vliegveld("SXF", Math.random() * 1000 + 35, Math.random() * 300));// Berlijn
-        vliegvelden.add( new Vliegveld("JFK", Math.random() * 1000 + 35, Math.random() * 300));//new York
-        vliegvelden.add( new Vliegveld("LHR", Math.random() * 3000 + 35, Math.random() * 300)); //Londen
+        vliegvelden.add( new Vliegveld("AMS", Math.random() * 300, 52.308333,  4.760833));//Amsterdam
+        vliegvelden.add( new Vliegveld("LAX", Math.random() * 300, 33.9425,    -118.408056));//Los angeles
+        vliegvelden.add( new Vliegveld("PAR", Math.random() * 300, 49.013611,  2.557778));// parijs
+        vliegvelden.add( new Vliegveld("SXF", Math.random() * 300, 52.38,      13.5225));// Berlijn
+        vliegvelden.add( new Vliegveld("JFK", Math.random() * 300, 40.639722,  -73.778889));//new York
+        vliegvelden.add( new Vliegveld("LHR", Math.random() * 300, 51.4775,    -0.461389)); //Londen
+        
+        randomPassiers();
         
         vliegtuigen.add(new PassiersVliegtuig("Boeing737",300, 1000, 500));
         vliegtuigen.add(new PassiersVliegtuig("Boeing747", 450, 1200, 700));
@@ -44,14 +45,42 @@ public class FlightTeamFour {
         System.out.println("\t       |           Menu:             |");
         System.out.println("\t       |-----------------------------|");
         System.out.println("\t       | 1.) Vliegtuig kopen         |");
-        System.out.println("\t       | 2.) Vlucht inplannen        |");
+        System.out.println("\t       | 2.) Vluchten inplannen      |");
         System.out.println("\t       | 3. Exit                     |");
         System.out.println("\t       |                         v1.0|");
         System.out.println("\t       -------------------------------");
         System.out.print("option: ");
+        
+        boolean running = true;
+        while (running) {
+            if (in.hasNextInt()) {
+
+                int selection = in.nextInt();
+                        
+                switch (selection) {
+
+                    case 1:
+                        Vliegtuig.vliegtuigKopen();     // Speluitleg
+                        break;
+                    case 2:
+                                          // Start game
+                        vluchtInplanen();
+                        break;
+                    case 3:
+                        running = false; // Sluit het spel af
+                        break;
+                    default:
+                        System.out.println("Please enter a valid selection");
+                        break;
+
+                }
+            }
+            
+                in.nextLine();
+        }
     }
 
-    public static void vluchtInplanenn() {
+    public static void vluchtInplanen() {
 
     }
 
@@ -144,6 +173,8 @@ public class FlightTeamFour {
     }
 
     private static void randomPassiers(){
-        
+        for(Vliegveld vliegveld: vliegvelden){
+            vliegveld.random();
+        }
     }
 }

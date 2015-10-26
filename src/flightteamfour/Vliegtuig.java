@@ -4,11 +4,16 @@ import java.util.Scanner;
 
 public class Vliegtuig extends FlightTeamFour {
 
-    protected double maxPassagiers;
+    protected int maxPassagiers;
     protected double maxVracht;
     protected double fuelCapacity;
     protected String name;
     protected Vliegveld vliegveld;
+    protected Vlucht vlucht;
+
+    public void setVlucht(Vlucht vlucht) {
+        this.vlucht = vlucht;
+    }
 
     private static Scanner in = new Scanner(System.in);
     public Vliegveld getVliegveld() {
@@ -24,7 +29,7 @@ public class Vliegtuig extends FlightTeamFour {
 
     }
 
-    Vliegtuig(String name, double maxPassagiers, double maxVracht, double fuelCapacity) {
+    Vliegtuig(String name, int maxPassagiers, double maxVracht, double fuelCapacity) {
         this.name = name;
         this.maxPassagiers = maxPassagiers; //number of people (MAX)
         this.maxVracht = maxVracht;     //KG vracht (Max)
