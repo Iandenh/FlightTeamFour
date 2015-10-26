@@ -10,14 +10,15 @@ public class Vliegveld {
     private final double xpositie;
     private final double ypositie;
     private final String name;
-    private ArrayList<PassiersGroep> passiersGroep = new ArrayList<PassiersGroep>();
+    private ArrayList<PassiersGroep> passiersGroepen = new ArrayList<PassiersGroep>();
+    private ArrayList<Vracht> VrachtGroepen = new ArrayList<Vracht>();
 
     public double getAantalPassagiers() {
         return aantalPassagiers;
     }
 
     public ArrayList<PassiersGroep> getPassiersGroep() {
-        return passiersGroep;
+        return passiersGroepen;
     }
 
     public double getAantalVracht() {
@@ -49,15 +50,24 @@ public class Vliegveld {
             if (vliegveld != this) {
                 getal = (int) (Math.random() * 300);
                 if (getal > 100) {
-                    passiersGroep.add(new PassiersGroep(getal, vliegveld));
+                    passiersGroepen.add(new PassiersGroep(getal, vliegveld));
+                    
+                }
+
+            }
+            if (vliegveld != this) {
+                getal = (int) (Math.random() * 300);
+                if (getal > 100) {
+                    VrachtGroepen.add(new Vracht(getal, vliegveld));
                     
                 }
 
             }
         }
-        for (PassiersGroep passiersGroep : passiersGroep) {
-            System.out.println(this.getName() + " naar " + passiersGroep.bestemming.getName() + " gaan " + passiersGroep.getPassagiers() + " passagiers");
-        }
 
+    }
+
+    public ArrayList<Vracht> getVrachtGroepen() {
+        return VrachtGroepen;
     }
 }

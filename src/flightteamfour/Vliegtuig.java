@@ -48,7 +48,10 @@ public class Vliegtuig extends FlightTeamFour {
     public void vliegen() {
         if(vlucht != null) {
             vliegveld = vlucht.getBestemming();
+            FlightTeamFour.geld += vlucht.getInkomsten();
             vlucht = null;
+            
+            
         }
     }
 

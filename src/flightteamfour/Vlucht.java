@@ -4,6 +4,7 @@ public class Vlucht {
 
     final private double literprijs = 1.12;
     private int aantal;
+    private double kilo;
     private double kosten;
     private double inkomsten;
 
@@ -18,6 +19,15 @@ public class Vlucht {
         this.bestemming = bestemming;
         this.aantal = aantal;
         kosten = kilometers() * literprijs;
+        inkomsten = (kilometers() * 0.10 + 10) * aantal;//passiers
+    }
+    
+    public Vlucht(Vliegveld vertrek, Vliegveld bestemming, double aantal) {
+        this.vertrek = vertrek;
+        this.bestemming = bestemming;
+        this.kilo = aantal;
+        kosten = kilometers() * literprijs;
+        inkomsten = kilo * 10 + kilometers();//passiers
     }
 
     public double getKosten() {
@@ -26,12 +36,6 @@ public class Vlucht {
 
     public double getInkomsten() {
         return inkomsten;
-    }
-
-    public double ticketPrijs() {
-
-        return kilometers() * 0.10 + 10;
-
     }
 
     public double kilometers() {

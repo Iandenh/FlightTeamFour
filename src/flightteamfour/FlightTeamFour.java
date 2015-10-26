@@ -35,11 +35,12 @@ public class FlightTeamFour {
         vliegtuigen.add(new PassiersVliegtuig("Boeing777", 600, 1800, 1000));
         vliegtuigen.add(new PassiersVliegtuig("Airbus380", 700, 3000, 2000));
         vliegtuigen.add(new VrachtVliegtuig("ITyet", 1000, 5000, 4000));
+        vliegtuigen.add(new VrachtVliegtuig("An-225", 2000, 10000, 6000));
+        vliegtuigen.add(new VrachtVliegtuig("Hercules", 2000, 10000, 6000));
+        vliegtuigen.add(new VrachtVliegtuig("FTF200", 2000, 10000, 6000));
 
         for (Vliegtuig vliegtuig : vliegtuigen) {
-            System.out.print(vliegtuig.getName());
             vliegtuig.setVliegveld(vliegvelden.get((int) (Math.random() * vliegvelden.size())));//Neerzetten op random vliegveld om te beginnen
-            System.out.println(" staat op " + vliegtuig.getVliegveld().getName());
         }
 
         boolean running = true;
@@ -111,22 +112,43 @@ public class FlightTeamFour {
 
             if (in.hasNextInt()) {
                 int keuze = in.nextInt() - 1;
-                if (keuze < vliegvelden.size()) {
+                if (keuze < vliegtuigen.size()) {
                     Vliegtuig vliegtuig = vliegtuigen.get(keuze);
-                    ArrayList<PassiersGroep> passiersGroepen = vliegtuig.getVliegveld().getPassiersGroep();
+                     
+                    if (vliegtuig instanceof PassiersVliegtuig) { //PassiersVliegtuig
+                       ArrayList<PassiersGroep> passiersGroepen = vliegtuig.getVliegveld().getPassiersGroep();
 
-                    System.out.println("\t       |       Kies bestemming:     |");
-                    for (int i = 0; i < passiersGroepen.size(); i++) {
-                        PassiersGroep passiersGroep = passiersGroepen.get(i);
-                        System.out.println((i + 1) + ".) " + vliegtuig.getVliegveld().getName() + " naar " + passiersGroep.bestemming.getName() + " gaan " + passiersGroep.getPassagiers() + " passagiers");
-                    }
-                    if (in.hasNextInt()) {
-                        int vluchtKeuzen = in.nextInt();
-                        if (vluchtKeuzen < passiersGroepen.size()) {
-                            PassiersGroep passiersGroep = passiersGroepen.get(vluchtKeuzen - 1);
-                            vliegtuig.setVlucht(new Vlucht(vliegtuig.getVliegveld(), passiersGroep.getBestemming(), passiersGroep.getPassagiers()));
+                        System.out.println("\t       |       Kies bestemming:     |");
+                        for (int i = 0; i < passiersGroepen.size(); i++) {
+                            PassiersGroep passiersGroep = passiersGroepen.get(i);
+                            System.out.println((i + 1) + ".) " + vliegtuig.getVliegveld().getName() + " naar " + passiersGroep.bestemming.getName() + " gaan " + passiersGroep.getPassagiers() + " passagiers");
                         }
+                        if (in.hasNextInt()) {
+                            int vluchtKeuzen = in.nextInt();
+                            if (vluchtKeuzen <= passiersGroepen.size()) {
+                                PassiersGroep passiersGroep = passiersGroepen.get(vluchtKeuzen - 1);
+                                vliegtuig.setVlucht(new Vlucht(vliegtuig.getVliegveld(), passiersGroep.getBestemming(), passiersGroep.getPassagiers()));
+                            }
+                        }
+                    } else {//vracht
+
+                        ArrayList<Vracht> Vrachtgroepen = vliegtuig.getVliegveld().getVrachtGroepen();
+
+                        System.out.println("\t       |       Kies bestemming:     |");
+                        for (int i = 0; i < (Vrachtgroepen.size()); i++) {
+                            Vracht Vrachtgroep = Vrachtgroepen.get(i);
+                            System.out.println((i + 1) + ".) " + vliegtuig.getVliegveld().getName() + " naar " + Vrachtgroep.bestemming.getName() + " gaan " + Vrachtgroep.getAantalVracht() + " kilo's");
+                        }
+                        if (in.hasNextInt()) {
+                            int vluchtKeuzen = in.nextInt();
+                            if (vluchtKeuzen <= Vrachtgroepen.size()) {
+                                Vracht Vrachtgroep = Vrachtgroepen.get(vluchtKeuzen - 1);
+                                vliegtuig.setVlucht(new Vlucht(vliegtuig.getVliegveld(), Vrachtgroep.getBestemming(), Vrachtgroep.getAantalVracht()));
+                            }
+                        }
+
                     }
+
                 }
             } else {
                 if (in.nextLine().equals("e")) {
