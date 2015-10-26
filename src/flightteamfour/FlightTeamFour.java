@@ -11,8 +11,8 @@ public class FlightTeamFour {
 
     public static Scanner in = new Scanner(System.in);
 
-    public int ronde = 1; // Aantal rondes - max 8.
-    public static int geld = 900000; // Geld wat de speler per ronde krijgt.
+    public static int ronde = 1; // Aantal rondes - max 8.
+    public static double geld = 900000; // Geld wat de speler per ronde krijgt.
 
     public static ArrayList<Vliegtuig> vliegtuigen = new ArrayList<Vliegtuig>();
     public static ArrayList<Vliegveld> vliegvelden = new ArrayList<Vliegveld>();
@@ -42,17 +42,18 @@ public class FlightTeamFour {
             System.out.println(" staat op " + vliegtuig.getVliegveld().getName());
         }
 
-        System.out.println("\t       |           Menu:             |");
-        System.out.println("\t       |-----------------------------|");
-        System.out.println("\t       | 1.) Vliegtuig kopen         |");
-        System.out.println("\t       | 2.) Vluchten inplannen      |");
-        System.out.println("\t       | 3. Exit                     |");
-        System.out.println("\t       |                         v1.0|");
-        System.out.println("\t       -------------------------------");
-        System.out.print("option: ");
-
         boolean running = true;
         while (running) {
+            System.out.println("\t       | Menu:          ronde: " + ronde + "     |");
+            System.out.println("\t       |-----------------------------|");
+            System.out.println("\t       | 1.) Vliegtuig kopen         |");
+            System.out.println("\t       | 2.) Vluchten inplannen      |");
+            System.out.println("\t       | 3.) Vluchten uitvoeren      |");
+            System.out.println("\t       | 4.) Bankzaken               |");
+            System.out.println("\t       | 5.) Terug                   |");
+            System.out.println("\t       |                         v1.0|");
+            System.out.println("\t       -------------------------------");
+            System.out.print("option: ");
             if (in.hasNextInt()) {
 
                 int selection = in.nextInt();
@@ -67,6 +68,18 @@ public class FlightTeamFour {
                         vluchtInplanen();
                         break;
                     case 3:
+                        // vluchten uitvoeren
+                        for (Vliegtuig vliegtuig : vliegtuigen) {
+                            vliegtuig.tanken();
+                            vliegtuig.vliegen();
+                        }
+                        ronde++;
+                        break;
+                    case 4:
+                        // bankzaken
+                        System.out.println("Je geld bedraagt: " + geld);
+                        break;
+                    case 5:
                         running = false; // Sluit het spel af
                         break;
                     default:
@@ -76,26 +89,25 @@ public class FlightTeamFour {
                 }
             }
 
-            in.nextLine();
         }
     }
 
     public static void vluchtInplanen() {
 
-        System.out.println("\t       |       Vlucht inplannen:     |");
-
-        System.out.println("\t       |-----------------------------|");
-        for (int i = 0; i < vliegtuigen.size(); i++) {
-            Vliegtuig vliegtuig = vliegtuigen.get(i);
-            if (vliegtuig.getVlucht() == null) {
-                System.out.println("\t       | " + (i + 1) + ".) " + vliegtuig.getName() + " staat op " + vliegtuig.getVliegveld().getName() + " |");
-            }
-
-        }
-        System.out.print("option: ");
-
         boolean running = true;
         while (running) {
+            System.out.println("\t       |       Vlucht inplannen:     |");
+
+            System.out.println("\t       |-----------------------------|");
+            for (int i = 0; i < vliegtuigen.size(); i++) {
+                Vliegtuig vliegtuig = vliegtuigen.get(i);
+                if (vliegtuig.getVlucht() == null) {
+                    System.out.println("\t       | " + (i + 1) + ".) " + vliegtuig.getName() + " staat op " + vliegtuig.getVliegveld().getName() + " |");
+                }
+
+            }
+            System.out.println("\t       | e.) Terug     |");
+            System.out.print("option: ");
 
             if (in.hasNextInt()) {
                 int keuze = in.nextInt() - 1;
@@ -106,21 +118,24 @@ public class FlightTeamFour {
                     System.out.println("\t       |       Kies bestemming:     |");
                     for (int i = 0; i < passiersGroepen.size(); i++) {
                         PassiersGroep passiersGroep = passiersGroepen.get(i);
-                        System.out.println((i + 1) + ".) " + vliegtuig.getVliegveld().getName() + " naar " + passiersGroep.bestemming.getName() + " gaan " + passiersGroep.passagiers + " passagiers");                   
+                        System.out.println((i + 1) + ".) " + vliegtuig.getVliegveld().getName() + " naar " + passiersGroep.bestemming.getName() + " gaan " + passiersGroep.getPassagiers() + " passagiers");
                     }
                     if (in.hasNextInt()) {
-                            int vluchtKeuzen = in.nextInt();
-                            if (vluchtKeuzen < passiersGroepen.size()) {
-                                PassiersGroep passiersGroep = passiersGroepen.get(vluchtKeuzen - 1);
-                                vliegtuig.setVlucht(new Vlucht(vliegtuig.getVliegveld(), passiersGroep.getBestemming()));
-                                running = false;
-                            }
+                        int vluchtKeuzen = in.nextInt();
+                        if (vluchtKeuzen < passiersGroepen.size()) {
+                            PassiersGroep passiersGroep = passiersGroepen.get(vluchtKeuzen - 1);
+                            vliegtuig.setVlucht(new Vlucht(vliegtuig.getVliegveld(), passiersGroep.getBestemming(), passiersGroep.getPassagiers()));
                         }
+                    }
                 }
             } else {
-                System.out.println("Please enter a valid selection");
+                if (in.nextLine().equals("e")) {
+                    running = false;
+                } else {
 
-                in.nextLine();
+                    System.out.println("Please enter a valid selection");
+
+                }
             }
 
         }
@@ -172,8 +187,6 @@ public class FlightTeamFour {
 
     public static void main(String[] args) {
 
-        Vliegtuig vliegobj = new Vliegtuig();
-
         boolean running = true;
 
         //Begin scherm
@@ -182,9 +195,9 @@ public class FlightTeamFour {
         System.out.println("\t# Jouw doel om zoveel mogelijk winst te maken\t# \n");
 
         //Start Menu
-        menu();
-        display:
         while (running) {
+
+            menu();
             if (in.hasNextInt()) {
 
                 int selection = in.nextInt();

@@ -7,9 +7,9 @@ public class Vliegveld {
 
     private double aantalPassagiers;
     private double aantalVracht;
-    private double xpositie;
-    private double ypositie;
-    private String name;
+    private final double xpositie;
+    private final double ypositie;
+    private final String name;
     private ArrayList<PassiersGroep> passiersGroep = new ArrayList<PassiersGroep>();
 
     public double getAantalPassagiers() {
@@ -55,7 +55,7 @@ public class Vliegveld {
             }
         }
         for (PassiersGroep passiersGroep : passiersGroep) {
-            System.out.println(this.getName() + " naar " + passiersGroep.bestemming.getName() + " gaan " + passiersGroep.passagiers + " passagiers");
+            System.out.println(this.getName() + " naar " + passiersGroep.bestemming.getName() + " gaan " + passiersGroep.getPassagiers() + " passagiers");
         }
 
     }

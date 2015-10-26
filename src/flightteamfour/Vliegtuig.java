@@ -28,11 +28,6 @@ public class Vliegtuig extends FlightTeamFour {
         this.vliegveld = vliegveld;
     }
 
-
-    Vliegtuig() {
-
-    }
-
     Vliegtuig(String name, int maxPassagiers, double maxVracht, double fuelCapacity) {
         this.name = name;
         this.maxPassagiers = maxPassagiers; //number of people (MAX)
@@ -44,12 +39,17 @@ public class Vliegtuig extends FlightTeamFour {
         return name;
     }
 
-    public static void tanken() {
-
+    public void tanken() {
+        if(vlucht != null){
+            FlightTeamFour.geld -= vlucht.getKosten();
+        }
     }
 
-    public static void vliegen() {
-
+    public void vliegen() {
+        if(vlucht != null) {
+            vliegveld = vlucht.getBestemming();
+            vlucht = null;
+        }
     }
 
     public static void vliegtuigKopen() {

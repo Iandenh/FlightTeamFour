@@ -4,7 +4,11 @@ package flightteamfour;
 
 public class PassiersGroep {
     
-    public int passagiers;
+    private int passagiers;
+
+    public int getPassagiers() {
+        return passagiers;
+    }
     public Vliegveld bestemming;
 
     public PassiersGroep(int passagiers, Vliegveld bestemming) {

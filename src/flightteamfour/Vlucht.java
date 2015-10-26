@@ -6,13 +6,26 @@ public class Vlucht {
     private int aantal;
     private double kosten;
     private double inkomsten;
+
+    public Vliegveld getBestemming() {
+        return bestemming;
+    }
     private Vliegveld vertrek;
     private Vliegveld bestemming;
 
-    public Vlucht(Vliegveld vertrek, Vliegveld bestemming) {
+    public Vlucht(Vliegveld vertrek, Vliegveld bestemming, int aantal) {
         this.vertrek = vertrek;
         this.bestemming = bestemming;
+        this.aantal = aantal;
         kosten = kilometers() * literprijs;
+    }
+
+    public double getKosten() {
+        return kosten;
+    }
+
+    public double getInkomsten() {
+        return inkomsten;
     }
 
     public double ticketPrijs() {
