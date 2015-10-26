@@ -50,6 +50,7 @@ public class Vliegveld {
                 getal = (int) (Math.random() * 300);
                 if (getal > 100) {
                     passiersGroep.add(new PassiersGroep(getal, vliegveld));
+                    
                 }
 
             }
