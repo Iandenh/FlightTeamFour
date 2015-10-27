@@ -56,6 +56,9 @@ public class Vliegtuig extends FlightTeamFour {
     }
 
     public static void vliegtuigKopen() {
+        
+        //Vliegtuig kopen optie
+        
         System.out.println("               Hallo speler!");
         System.out.println("Hier is het mogelijk om een vliegtuig aan te schaffen.");
         System.out.println("Jou geld bedraagt: " + FlightTeamFour.geld + "\n");
@@ -66,7 +69,7 @@ public class Vliegtuig extends FlightTeamFour {
         System.out.println("2.)\t Vrachtvliegtuig");
         System.out.println("3.)\t Terug naar het menu\n");
 
-        System.out.print("Option: ");
+        System.out.print("Optie: ");
 
         boolean running = true;
         while (running) {
@@ -77,7 +80,7 @@ public class Vliegtuig extends FlightTeamFour {
                 System.out.println("1.) 7.000$    Jet5000     \t #De Jet5000 kan maar lieft 400 passagiers meenemen en heeft een 1000 Liter tank");
                 System.out.println("2.) $15.000   SuperJet300 \t #De SuperJet300 kan maar liefst 500 passagiers meenemen en heeft een turbo motor.");
                 System.out.println("3.) $20.000   Airbus5000  \t #De Airbus5000 heeft maar liefst ruimte voor 850 personen!\n");
-                System.out.print("Option: ");
+                System.out.print("Optie: ");
             }
             if (in.hasNextInt()) {
                 int input = in.nextInt();
@@ -90,7 +93,7 @@ public class Vliegtuig extends FlightTeamFour {
 
                 } else if (input == 1 && geld < 7000) {
 
-                    System.out.println("Oops! Not enough money");
+                    System.out.println("Oops! Niet genoeg geld");
 
                 }
             }
@@ -105,7 +108,7 @@ public class Vliegtuig extends FlightTeamFour {
 
         } else {
 
-            System.out.println("invalid option");
+            System.out.println("ongeldige optie");
         }
 
     }

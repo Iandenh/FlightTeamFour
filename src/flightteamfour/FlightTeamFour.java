@@ -21,12 +21,13 @@ public class FlightTeamFour {
     public static void start() {
 
         //Voorbereidingen
-        vliegvelden.add(new Vliegveld("AMS", Math.random() * 300, 52.308333, 4.760833));//Amsterdam
-        vliegvelden.add(new Vliegveld("LAX", Math.random() * 300, 33.9425, -118.408056));//Los angeles
-        vliegvelden.add(new Vliegveld("PAR", Math.random() * 300, 49.013611, 2.557778));// parijs
-        vliegvelden.add(new Vliegveld("SXF", Math.random() * 300, 52.38, 13.5225));// Berlijn
-        vliegvelden.add(new Vliegveld("JFK", Math.random() * 300, 40.639722, -73.778889));//new York
-        vliegvelden.add(new Vliegveld("LHR", Math.random() * 300, 51.4775, -0.461389)); //Londen
+        
+        vliegvelden.add(new Vliegveld("AMS", Math.random() * 300, 52.308333, 4.760833));   //Amsterdam
+        vliegvelden.add(new Vliegveld("LAX", Math.random() * 300, 33.9425, -118.408056));  //Los angeles
+        vliegvelden.add(new Vliegveld("PAR", Math.random() * 300, 49.013611, 2.557778));   //Parijs
+        vliegvelden.add(new Vliegveld("SXF", Math.random() * 300, 52.38, 13.5225));        // Berlijn
+        vliegvelden.add(new Vliegveld("JFK", Math.random() * 300, 40.639722, -73.778889)); //new York
+        vliegvelden.add(new Vliegveld("LHR", Math.random() * 300, 51.4775, -0.461389));    //Londen
 
         randomPassiers();
 
@@ -34,26 +35,27 @@ public class FlightTeamFour {
         vliegtuigen.add(new PassiersVliegtuig("Boeing747", 450, 1200, 700));
         vliegtuigen.add(new PassiersVliegtuig("Boeing777", 600, 1800, 1000));
         vliegtuigen.add(new PassiersVliegtuig("Airbus380", 700, 3000, 2000));
-        vliegtuigen.add(new VrachtVliegtuig("ITyet", 1000, 5000, 4000));
-        vliegtuigen.add(new VrachtVliegtuig("An-225", 2000, 10000, 6000));
-        vliegtuigen.add(new VrachtVliegtuig("Hercules", 2000, 10000, 6000));
-        vliegtuigen.add(new VrachtVliegtuig("FTF200", 2000, 10000, 6000));
+        vliegtuigen.add(new VrachtVliegtuig  ("ITyet", 1000, 5000, 4000));
+        vliegtuigen.add(new VrachtVliegtuig  ("An-225", 2000, 10000, 6000));
+        vliegtuigen.add(new VrachtVliegtuig  ("Hercules", 2000, 10000, 6000));
+        vliegtuigen.add(new VrachtVliegtuig  ("FTF200", 2000, 10000, 6000));
 
         for (Vliegtuig vliegtuig : vliegtuigen) {
-            vliegtuig.setVliegveld(vliegvelden.get((int) (Math.random() * vliegvelden.size())));//Neerzetten op random vliegveld om te beginnen
+            vliegtuig.setVliegveld(vliegvelden.get((int) (Math.random() * vliegvelden.size()))); //Neerzetten op random vliegveld om te beginnen
         }
 
         boolean running = true;
         while (running) {
-            System.out.println("\t       | Menu:          ronde: " + ronde + "     |");
-            System.out.println("\t       |-----------------------------|");
-            System.out.println("\t       | 1.) Vliegtuig kopen         |");
-            System.out.println("\t       | 2.) Vluchten inplannen      |");
-            System.out.println("\t       | 3.) Vluchten uitvoeren      |");
-            System.out.println("\t       | 4.) Bankzaken               |");
-            System.out.println("\t       | 5.) Terug                   |");
-            System.out.println("\t       |                         v1.0|");
-            System.out.println("\t       -------------------------------");
+            System.out.println("\t       | Menu:                        |");
+            System.out.println("\t       | Ronde --> " +ronde+"         |");
+            System.out.println("\t       |------------------------------|");
+            System.out.println("\t       | 1.).......Vliegtuig kopen    |");
+            System.out.println("\t       | 2.).......Vluchten inplannen |");
+            System.out.println("\t       | 3.).......Vluchten uitvoeren |");
+            System.out.println("\t       | 4.).......Bankzaken          |");
+            System.out.println("\t       | 5.).......Terug              |");
+            System.out.println("\t       |                              |");
+            System.out.println("\t       |------------------------------|");
             System.out.print("option: ");
             if (in.hasNextInt()) {
 
@@ -62,14 +64,15 @@ public class FlightTeamFour {
                 switch (selection) {
 
                     case 1:
-                        Vliegtuig.vliegtuigKopen();     // Speluitleg
+                        //Vliegtuigkopen
+                        Vliegtuig.vliegtuigKopen();     
                         break;
                     case 2:
-                        // Start game
+                        //Vluchtinplannen
                         vluchtInplanen();
                         break;
                     case 3:
-                        // vluchten uitvoeren
+                        //Vluchuitvoeren
                         for (Vliegtuig vliegtuig : vliegtuigen) {
                             vliegtuig.tanken();
                             vliegtuig.vliegen();
@@ -84,7 +87,7 @@ public class FlightTeamFour {
                         running = false; // Sluit het spel af
                         break;
                     default:
-                        System.out.println("Please enter a valid selection");
+                        System.out.println("Enter een geldige optie");
                         break;
 
                 }
@@ -103,12 +106,12 @@ public class FlightTeamFour {
             for (int i = 0; i < vliegtuigen.size(); i++) {
                 Vliegtuig vliegtuig = vliegtuigen.get(i);
                 if (vliegtuig.getVlucht() == null) {
-                    System.out.println("\t       | " + (i + 1) + ".) " + vliegtuig.getName() + " staat op " + vliegtuig.getVliegveld().getName() + " |");
+                    System.out.println("\t        " + (i + 1) + ".) " + vliegtuig.getName() + " staat op " + vliegtuig.getVliegveld().getName() + " ");
                 }
 
             }
-            System.out.println("\t       | e.) Terug     |");
-            System.out.print("option: ");
+            System.out.println("\t        e.) Terug     ");
+            System.out.print("optie: ");
 
             if (in.hasNextInt()) {
                 int keuze = in.nextInt() - 1;
@@ -155,7 +158,7 @@ public class FlightTeamFour {
                     running = false;
                 } else {
 
-                    System.out.println("Please enter a valid selection");
+                    System.out.println("Enter een geldige optie");
 
                 }
             }
@@ -166,14 +169,18 @@ public class FlightTeamFour {
 
     public static void menu() {
 
-        System.out.println("\t       |           Menu:             |");
-        System.out.println("\t       |-----------------------------|");
-        System.out.println("\t       | 1.) Speluitleg              |");
-        System.out.println("\t       | 2.) Start                   |");
-        System.out.println("\t       | 3. Exit                     |");
-        System.out.println("\t       |                         v1.0|");
-        System.out.println("\t       -------------------------------");
-        System.out.print("option: ");
+        System.out.println("\t     |               Mainmenu:             |");
+        System.out.println("\t     |-------------------------------------|");
+        System.out.println("\t     |-------------------------------------|");
+        System.out.println("\t     | 1.)..........Speluitleg             |");
+        System.out.println("\t     | 2.)..........Start                  |");
+        System.out.println("\t     | 3.)..........Exit                   |");
+        System.out.println("\t     |                         v1.0        |");
+        System.out.println("\t     |        Created by Ian & Tony        |");
+        System.out.println("\t     |-------------------------------------|");
+        System.out.print("optie: ");
+        
+        
 
     }
 
@@ -199,7 +206,7 @@ public class FlightTeamFour {
                 menu();
                 return;
             } else {
-                System.out.println("Please enter a valid selection");
+                System.out.println("Enter een geldige optie");
 
                 in.nextLine();
             }
@@ -237,7 +244,7 @@ public class FlightTeamFour {
                         running = false; // Sluit het spel af
                         break;
                     default:
-                        System.out.println("Please enter a valid selection");
+                        System.out.println("Enter een geldige optie");
                         break;
 
                 }

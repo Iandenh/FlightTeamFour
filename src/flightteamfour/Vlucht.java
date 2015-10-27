@@ -27,7 +27,7 @@ public class Vlucht {
         this.bestemming = bestemming;
         this.kilo = aantal;
         kosten = kilometers() * literprijs;
-        inkomsten = kilo * 10 + kilometers();//passiers
+        inkomsten = kilo * 10 + kilometers();//vracht
     }
 
     public double getKosten() {
@@ -45,7 +45,7 @@ public class Vlucht {
         double lat2 = vertrek.getXpositie();
         double lng2 = vertrek.getYpositie();
 
-        // @see: 
+        // @see: google.nl
         double earthRadius = 6371000; //meters
         double dLat = Math.toRadians(lat2 - lat1);
         double dLng = Math.toRadians(lng2 - lng1);
