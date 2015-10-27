@@ -64,16 +64,16 @@ public class Vliegtuig extends FlightTeamFour {
 
         System.out.println("Wat voor soort vliegtuig wilt u kopen?\n");
         System.out.println("------------------------------------------");
-        System.out.println("1.)\t Passagiersvliegtuig");
-        System.out.println("2.)\t Vrachtvliegtuig");
-        System.out.println("3.)\t Terug naar het menu\n");
+        System.out.println("p.)\t Passagiersvliegtuig");
+        System.out.println("v.)\t Vrachtvliegtuig");
+        System.out.println("e.)\t Terug naar het menu\n");
 
         System.out.print("Optie: ");
 
         boolean running = true;
         while (running) {
 
-            if (in.hasNextInt() && in.nextInt() == 1) {
+            if (in.hasNext() && in.next().equals("p")) {
 
                 System.out.println("Je kan kiezen uit de volgende Passagiersvliegtuigen: ");
                 System.out.println("1.) 7.000$    Jet5000     \t #De Jet5000 kan maar lieft 400 passagiers meenemen en heeft een 1000 Liter tank");
@@ -93,10 +93,10 @@ public class Vliegtuig extends FlightTeamFour {
 
                 } else if (input == 1 && geld < 7000) {
 
-                    System.out.println("Oops! Niet genoeg geld");
+                    System.out.println("Oeps! Niet genoeg geld");
 
                 }
-                if (input == 2 && geld >= 15000) {
+                else if (input == 2 && geld >= 15000) {
 
                     System.out.println("Je hebt de SuperJet300 gekocht");
                     System.out.println("Druk op e om terug te keren naar het menu");
@@ -106,38 +106,77 @@ public class Vliegtuig extends FlightTeamFour {
                 } else if (input == 2 && geld < 15000) {
 
                     System.out.println("Oops! Niet genoeg geld");
-
-                    if (input == 3 && geld >= 20000) {
-
-                        System.out.println("Je hebt de Airbus5000 gekocht");
-                        System.out.println("Druk op e om terug te keren naar het menu");
-                        vliegtuigen.add(new PassiersVliegtuig("Airbus5000", 400, 400, 1000));
-                        geld = geld - 20000;
-                        running = false;
-
-                    } else if (input == 3 && geld < 20000) {
-
-                        System.out.println("Oops! Niet genoeg geld");
-
-                    } else {
-
-                        System.out.println("ongeldige optie");
-                    }
                 }
 
+                else if (input == 3 && geld >= 20000) {
+
+                    System.out.println("Je hebt de Airbus5000 gekocht");
+                    System.out.println("Druk op e om terug te keren naar het menu");
+                    vliegtuigen.add(new PassiersVliegtuig("Airbus5000", 400, 400, 1000));
+                    geld = geld - 20000;
+                    running = false;
+
+                } else if (input == 3 && geld < 20000) {
+
+                    System.out.println("Oops! Niet genoeg geld");
+
+                } else {
+
+                    System.out.println("ongeldige optie");
+                }
             }
-            if (in.hasNextInt() && in.nextInt() == 2) {
+            if (in.hasNext() && in.next().equals("v")) {
 
                 System.out.println("Je kan kiezen uit de volgende Vrachtvliegtuigen: ");
                 System.out.println("1.) $7.000    FlySuper300 \t #De FlySuper300 kan maar lieft 2.000kg vracht meenemen en heeft een mooi uiterlijk.");
-                System.out.println("2.) $15.000   SuperJet300 \t #De SuperJet300 kan maar liefst 5.000kg vracht meenemen en heeft een extra laadruimte voor 500kg.");
-                System.out.println("3.) $20.000   Airbus5000 \t #De Airbus5000 heeft maar liefst ruimte voor 15.000kg vracht!");
+                System.out.println("2.) $15.000   SuperJetV \t #De SuperJet300 kan maar liefst 5.000kg vracht meenemen en heeft een extra laadruimte voor 500kg.");
+                System.out.println("3.) $20.000   AirbusIT \t #De Airbus5000 heeft maar liefst ruimte voor 15.000kg vracht!");
 
-            } else {
-
-                System.out.println("ongeldige optie");
             }
+            if (in.hasNextInt()) {
+                int input2 = in.nextInt();
+                if (input2 == 1 && geld >= 7000) {
 
+                    System.out.println("Je hebt de FlySuper300 gekocht");
+                    System.out.println("Druk op e om terug te keren naar het menu");
+                    vliegtuigen.add(new VrachtVliegtuig("FlySuper300", 400, 400, 1000));
+                    geld = geld - 7000;
+                    running = false;
+
+                } else if (input2 == 1 && geld < 7000) {
+
+                    System.out.println("Oeps! Niet genoeg geld");
+
+                }
+                else if (input2 == 2 && geld >= 15000) {
+
+                    System.out.println("Je hebt de SuperJetV gekocht");
+                    System.out.println("Druk op e om terug te keren naar het menu");
+                    vliegtuigen.add(new VrachtVliegtuig("SuperJetV", 850, 400, 1000));
+                    geld = geld - 15000;
+                    running = false;
+                } else if (input2 == 2 && geld < 15000) {
+
+                    System.out.println("Oops! Niet genoeg geld");
+                }
+
+                else if (input2 == 3 && geld >= 20000) {
+
+                    System.out.println("Je hebt de AirbusIT gekocht");
+                    System.out.println("Druk op e om terug te keren naar het menu");
+                    vliegtuigen.add(new VrachtVliegtuig("AirbusIT", 400, 400, 1000));
+                    geld = geld - 20000;
+                    running = false;
+
+                } else if (input2 == 3 && geld < 20000) {
+
+                    System.out.println("Oops! Niet genoeg geld");
+
+                } else {
+
+                    System.out.println("ongeldige optie");
+                }
+            }
         }
     }
 }
