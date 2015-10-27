@@ -47,7 +47,7 @@ public class FlightTeamFour {
         boolean running = true;
         while (running) {
             System.out.println("\t       | Menu:                        |");
-            System.out.println("\t       | Ronde --> " +ronde+"         |");
+            System.out.println("\t       | Ronde --> " + "[" +ronde+"]                |");
             System.out.println("\t       |------------------------------|");
             System.out.println("\t       | 1.).......Vliegtuig kopen    |");
             System.out.println("\t       | 2.).......Vluchten inplannen |");
@@ -81,7 +81,9 @@ public class FlightTeamFour {
                         break;
                     case 4:
                         // bankzaken
-                        System.out.println("Je geld bedraagt: " + geld);
+                        System.out.println("----------------------------");
+                        System.out.println("Je geld bedraagt: " + geld   );
+                        System.out.println("----------------------------");
                         break;
                     case 5:
                         running = false; // Sluit het spel af
