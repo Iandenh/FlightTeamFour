@@ -2,7 +2,7 @@ package flightteamfour;
 
 import java.util.Scanner;
 
-public class Vliegtuig extends FlightTeamFour {
+public class Vliegtuig {
 
     protected int maxPassagiers;
     protected double maxVracht;
