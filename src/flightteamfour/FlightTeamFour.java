@@ -90,9 +90,13 @@ public class FlightTeamFour {
                         break;
                     default:
                         System.out.println("Enter een geldige optie");
+                        in.nextLine();
                         break;
 
                 }
+            } else {
+                System.out.println("Enter een geldige optie");
+                in.nextLine();
             }
 
         }
@@ -133,7 +137,13 @@ public class FlightTeamFour {
                             if (vluchtKeuzen <= passiersGroepen.size()) {
                                 PassiersGroep passiersGroep = passiersGroepen.get(vluchtKeuzen - 1);
                                 vliegtuig.setVlucht(new Vlucht(vliegtuig.getVliegveld(), passiersGroep.getBestemming(), passiersGroep.getPassagiers()));
+                                System.out.println("Vlucht van: "+ vliegtuig.getVliegveld().getName()+ " naar " + 
+                                        passiersGroep.getBestemming().getName()+ "met "+ 
+                                        passiersGroep.getPassagiers()+ " passagiers" +
+                                        "is ingepland"
+                                );
                             }
+                            
                         }
                     } else {//vracht
 
@@ -149,6 +159,11 @@ public class FlightTeamFour {
                             if (vluchtKeuzen <= Vrachtgroepen.size()) {
                                 Vracht Vrachtgroep = Vrachtgroepen.get(vluchtKeuzen - 1);
                                 vliegtuig.setVlucht(new Vlucht(vliegtuig.getVliegveld(), Vrachtgroep.getBestemming(), Vrachtgroep.getAantalVracht()));
+                                System.out.println("Vlucht van: "+ vliegtuig.getVliegveld().getName()+ " naar " + 
+                                        Vrachtgroep.getBestemming().getName()+ "met "+ 
+                                        Vrachtgroep.getAantalVracht() + " kilo's" +
+                                        "is ingepland"
+                                );
                             }
                         }
 
