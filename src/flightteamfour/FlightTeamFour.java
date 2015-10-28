@@ -95,8 +95,9 @@ public class FlightTeamFour {
                 }
             } else {
                 System.out.println("Enter een geldige optie");
-                in.nextLine();
+                
             }
+            in.nextLine();
 
         }
     }
@@ -287,8 +288,8 @@ public class FlightTeamFour {
         boolean running = true;
         while (running) {
             if (in.hasNext()) {
-
-                if (in.next().equals("p")) {
+                String menuKeuze = in.next();
+                if (menuKeuze.equals("p")) {
 
                     System.out.println("Je kan kiezen uit de volgende Passagiersvliegtuigen: ");
                     System.out.println("1.) 7.000$    Jet5000     \t #De Jet5000 kan maar lieft 400 passagiers meenemen en heeft een 1000 Liter tank");
@@ -348,7 +349,7 @@ public class FlightTeamFour {
                     }
                 }
 
-                else if (in.next().equals("v")) {
+                else if (menuKeuze.equals("v")) {
 
                     System.out.println("Je kan kiezen uit de volgende Vrachtvliegtuigen: ");
                     System.out.println("1.) $7.000    FlySuper300 \t #De FlySuper300 kan maar lieft 2.000kg vracht meenemen en heeft een mooi uiterlijk.");
@@ -396,6 +397,8 @@ public class FlightTeamFour {
                             System.out.println("ongeldige optie");
                         }
                     }
+                } else if(menuKeuze.equals("e")) {
+                    running = false;
                 }
             }
         }
