@@ -21,7 +21,6 @@ public class FlightTeamFour {
     public static void start() {
 
         //Voorbereidingen
-        
         vliegvelden.add(new Vliegveld("AMS", Math.random() * 300, 52.308333, 4.760833));   //Amsterdam
         vliegvelden.add(new Vliegveld("LAX", Math.random() * 300, 33.9425, -118.408056));  //Los angeles
         vliegvelden.add(new Vliegveld("PAR", Math.random() * 300, 49.013611, 2.557778));   //Parijs
@@ -35,10 +34,10 @@ public class FlightTeamFour {
         vliegtuigen.add(new PassiersVliegtuig("Boeing747", 450, 1200, 700));
         vliegtuigen.add(new PassiersVliegtuig("Boeing777", 600, 1800, 1000));
         vliegtuigen.add(new PassiersVliegtuig("Airbus380", 700, 3000, 2000));
-        vliegtuigen.add(new VrachtVliegtuig  ("ITyet", 1000, 5000, 4000));
-        vliegtuigen.add(new VrachtVliegtuig  ("An-225", 2000, 10000, 6000));
-        vliegtuigen.add(new VrachtVliegtuig  ("Hercules", 2000, 10000, 6000));
-        vliegtuigen.add(new VrachtVliegtuig  ("FTF200", 2000, 10000, 6000));
+        vliegtuigen.add(new VrachtVliegtuig("ITyet", 1000, 5000, 4000));
+        vliegtuigen.add(new VrachtVliegtuig("An-225", 2000, 10000, 6000));
+        vliegtuigen.add(new VrachtVliegtuig("Hercules", 2000, 10000, 6000));
+        vliegtuigen.add(new VrachtVliegtuig("FTF200", 2000, 10000, 6000));
 
         for (Vliegtuig vliegtuig : vliegtuigen) {
             vliegtuig.setVliegveld(vliegvelden.get((int) (Math.random() * vliegvelden.size()))); //Neerzetten op random vliegveld om te beginnen
@@ -47,7 +46,7 @@ public class FlightTeamFour {
         boolean running = true;
         while (running) {
             System.out.println("\t       | Menu:                        |");
-            System.out.println("\t       | Ronde --> " + "[" +ronde+"]                |");
+            System.out.println("\t       | Ronde --> " + "[" + ronde + "]                |");
             System.out.println("\t       |------------------------------|");
             System.out.println("\t       | 1.).......Vliegtuig kopen    |");
             System.out.println("\t       | 2.).......Vluchten inplannen |");
@@ -65,7 +64,7 @@ public class FlightTeamFour {
 
                     case 1:
                         //Vliegtuigkopen
-                        Vliegtuig.vliegtuigKopen();     
+                        vliegtuigKopen();
                         break;
                     case 2:
                         //Vluchtinplannen
@@ -82,7 +81,7 @@ public class FlightTeamFour {
                     case 4:
                         // bankzaken
                         System.out.println("----------------------------");
-                        System.out.println("Je geld bedraagt: " + geld   );
+                        System.out.println("Je geld bedraagt: " + geld);
                         System.out.println("----------------------------");
                         break;
                     case 5:
@@ -123,9 +122,9 @@ public class FlightTeamFour {
                 int keuze = in.nextInt() - 1;
                 if (keuze < vliegtuigen.size()) {
                     Vliegtuig vliegtuig = vliegtuigen.get(keuze);
-                     
+
                     if (vliegtuig instanceof PassiersVliegtuig) { //PassiersVliegtuig
-                       ArrayList<PassiersGroep> passiersGroepen = vliegtuig.getVliegveld().getPassiersGroep();
+                        ArrayList<PassiersGroep> passiersGroepen = vliegtuig.getVliegveld().getPassiersGroep();
 
                         System.out.println("\t       |       Kies bestemming:     |");
                         for (int i = 0; i < passiersGroepen.size(); i++) {
@@ -137,13 +136,13 @@ public class FlightTeamFour {
                             if (vluchtKeuzen <= passiersGroepen.size()) {
                                 PassiersGroep passiersGroep = passiersGroepen.get(vluchtKeuzen - 1);
                                 vliegtuig.setVlucht(new Vlucht(vliegtuig.getVliegveld(), passiersGroep.getBestemming(), passiersGroep.getPassagiers()));
-                                System.out.println("Vlucht van: "+ vliegtuig.getVliegveld().getName()+ " naar " + 
-                                        passiersGroep.getBestemming().getName()+ "met "+ 
-                                        passiersGroep.getPassagiers()+ " passagiers" +
-                                        "is ingepland"
+                                System.out.println("Vlucht van: " + vliegtuig.getVliegveld().getName() + " naar "
+                                        + passiersGroep.getBestemming().getName() + "met "
+                                        + passiersGroep.getPassagiers() + " passagiers"
+                                        + "is ingepland"
                                 );
                             }
-                            
+
                         }
                     } else {//vracht
 
@@ -159,10 +158,10 @@ public class FlightTeamFour {
                             if (vluchtKeuzen <= Vrachtgroepen.size()) {
                                 Vracht Vrachtgroep = Vrachtgroepen.get(vluchtKeuzen - 1);
                                 vliegtuig.setVlucht(new Vlucht(vliegtuig.getVliegveld(), Vrachtgroep.getBestemming(), Vrachtgroep.getAantalVracht()));
-                                System.out.println("Vlucht van: "+ vliegtuig.getVliegveld().getName()+ " naar " + 
-                                        Vrachtgroep.getBestemming().getName()+ "met "+ 
-                                        Vrachtgroep.getAantalVracht() + " kilo's" +
-                                        "is ingepland"
+                                System.out.println("Vlucht van: " + vliegtuig.getVliegveld().getName() + " naar "
+                                        + Vrachtgroep.getBestemming().getName() + "met "
+                                        + Vrachtgroep.getAantalVracht() + " kilo's"
+                                        + "is ingepland"
                                 );
                             }
                         }
@@ -196,8 +195,6 @@ public class FlightTeamFour {
         System.out.println("\t     |        Created by Ian & Tony        |");
         System.out.println("\t     |-------------------------------------|");
         System.out.print("optie: ");
-        
-        
 
     }
 
@@ -270,6 +267,163 @@ public class FlightTeamFour {
             in.nextLine();
         }
 
+    }
+
+    public static void vliegtuigKopen() {
+
+        //Vliegtuig kopen optie
+        System.out.println("               Hallo speler!");
+        System.out.println("Hier is het mogelijk om een vliegtuig aan te schaffen.");
+        System.out.println("Jou geld bedraagt: " + FlightTeamFour.geld + "\n");
+
+        System.out.println("Wat voor soort vliegtuig wilt u kopen?\n");
+        System.out.println("------------------------------------------");
+        System.out.println("p.)\t Passagiersvliegtuig");
+        System.out.println("v.)\t Vrachtvliegtuig");
+        System.out.println("e.)\t Terug naar het menu\n");
+
+        System.out.print("Optie: ");
+
+        boolean running = true;
+        while (running) {
+            if (in.hasNext()) {
+
+                if (in.next().equals("p")) {
+
+                    System.out.println("Je kan kiezen uit de volgende Passagiersvliegtuigen: ");
+                    System.out.println("1.) 7.000$    Jet5000     \t #De Jet5000 kan maar lieft 400 passagiers meenemen en heeft een 1000 Liter tank");
+                    System.out.println("2.) $15.000   SuperJet300 \t #De SuperJet300 kan maar liefst 500 passagiers meenemen en heeft een turbo motor.");
+                    System.out.println("3.) $20.000   Airbus5000  \t #De Airbus5000 heeft maar liefst ruimte voor 850 personen!\n");
+                    System.out.print("Optie: ");
+
+                    if (in.hasNextInt()) {
+                        int input = in.nextInt();
+                        if (input == 1 && geld >= 7000) {
+
+                            Vliegtuig tmpVliegtuig = new PassiersVliegtuig("Jet5000", 400, 400, 1000);
+                            tmpVliegtuig.setVliegveld(vliegvelden.get(kiesAirport()));
+                            vliegtuigen.add(tmpVliegtuig);
+
+                            System.out.println("Je hebt de Jet5000 gekocht");
+                            System.out.println("Druk op e om terug te keren naar het menu");
+                            geld = geld - 7000;
+                            running = false;
+
+                        } else if (input == 1 && geld < 7000) {
+
+                            System.out.println("Oeps! Niet genoeg geld");
+
+                        } else if (input == 2 && geld >= 15000) {
+
+                            Vliegtuig tmpVliegtuig = new PassiersVliegtuig("SuperJet300", 850, 400, 1000);
+                            tmpVliegtuig.setVliegveld(vliegvelden.get(kiesAirport()));
+                            vliegtuigen.add(tmpVliegtuig);
+
+                            System.out.println("Je hebt de SuperJet300 gekocht");
+                            System.out.println("Druk op e om terug te keren naar het menu");
+                            geld = geld - 15000;
+                            running = false;
+                        } else if (input == 2 && geld < 15000) {
+
+                            System.out.println("Oops! Niet genoeg geld");
+                        } else if (input == 3 && geld >= 20000) {
+
+                            Vliegtuig tmpVliegtuig = new PassiersVliegtuig("Airbus5000", 400, 400, 1000);
+                            tmpVliegtuig.setVliegveld(vliegvelden.get(kiesAirport()));
+                            vliegtuigen.add(tmpVliegtuig);
+
+                            System.out.println("Je hebt de Airbus5000 gekocht");
+                            System.out.println("Druk op e om terug te keren naar het menu");
+                            geld = geld - 20000;
+                            running = false;
+
+                        } else if (input == 3 && geld < 20000) {
+
+                            System.out.println("Oops! Niet genoeg geld");
+
+                        } else {
+
+                            System.out.println("ongeldige optie");
+                        }
+                    }
+                }
+
+                else if (in.next().equals("v")) {
+
+                    System.out.println("Je kan kiezen uit de volgende Vrachtvliegtuigen: ");
+                    System.out.println("1.) $7.000    FlySuper300 \t #De FlySuper300 kan maar lieft 2.000kg vracht meenemen en heeft een mooi uiterlijk.");
+                    System.out.println("2.) $15.000   SuperJetV \t #De SuperJet300 kan maar liefst 5.000kg vracht meenemen en heeft een extra laadruimte voor 500kg.");
+                    System.out.println("3.) $20.000   AirbusIT \t #De Airbus5000 heeft maar liefst ruimte voor 15.000kg vracht!");
+
+                    if (in.hasNextInt()) {
+                        int input2 = in.nextInt();
+                        if (input2 == 1 && geld >= 7000) {
+
+                            System.out.println("Je hebt de FlySuper300 gekocht");
+                            System.out.println("Druk op e om terug te keren naar het menu");
+                            vliegtuigen.add(new VrachtVliegtuig("FlySuper300", 400, 400, 1000));
+                            geld = geld - 7000;
+                            running = false;
+
+                        } else if (input2 == 1 && geld < 7000) {
+
+                            System.out.println("Oeps! Niet genoeg geld");
+
+                        } else if (input2 == 2 && geld >= 15000) {
+
+                            System.out.println("Je hebt de SuperJetV gekocht");
+                            System.out.println("Druk op e om terug te keren naar het menu");
+                            vliegtuigen.add(new VrachtVliegtuig("SuperJetV", 850, 400, 1000));
+                            geld = geld - 15000;
+                            running = false;
+                        } else if (input2 == 2 && geld < 15000) {
+
+                            System.out.println("Oops! Niet genoeg geld");
+                        } else if (input2 == 3 && geld >= 20000) {
+
+                            System.out.println("Je hebt de AirbusIT gekocht");
+                            System.out.println("Druk op e om terug te keren naar het menu");
+                            vliegtuigen.add(new VrachtVliegtuig("AirbusIT", 400, 400, 1000));
+                            geld = geld - 20000;
+                            running = false;
+
+                        } else if (input2 == 3 && geld < 20000) {
+
+                            System.out.println("Oops! Niet genoeg geld");
+
+                        } else {
+
+                            System.out.println("ongeldige optie");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private static int kiesAirport() {
+
+        while (true) {
+
+            System.out.println("\t       |       Kies airport     |");
+
+            System.out.println("\t       |-----------------------------|");
+            for (int i = 0; i < vliegvelden.size(); i++) {
+                Vliegveld vliegveld = vliegvelden.get(i);
+
+                System.out.println("\t        " + (i + 1) + ".) " + vliegveld.getName());
+
+            }
+            if (in.hasNextInt()) {
+                int vliegveldKeuze = in.nextInt();
+                if (vliegveldKeuze <= vliegvelden.size() && vliegveldKeuze > 0) {
+                    return (vliegveldKeuze - 1);
+                }
+            } else {
+                System.out.println("ongeldige optie");
+                in.nextLine();
+            }
+        }
     }
 
     private static void randomPassiers() {
