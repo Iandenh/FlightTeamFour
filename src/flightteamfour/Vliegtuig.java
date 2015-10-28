@@ -1,7 +1,5 @@
 package flightteamfour;
 
-import java.util.Scanner;
-
 public class Vliegtuig {
 
     protected int maxPassagiers;
@@ -19,7 +17,6 @@ public class Vliegtuig {
         this.vlucht = vlucht;
     }
 
-    private static Scanner in = new Scanner(System.in);
 
     public Vliegveld getVliegveld() {
         return vliegveld;
