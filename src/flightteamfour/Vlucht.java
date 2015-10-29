@@ -4,15 +4,27 @@ public class Vlucht {
 
     final private double literprijs = 1.12;
     private int aantal;
-    private double kilo;
+    private double kilo = 0;
     private double kosten;
+
+    public int getAantal() {
+        return aantal;
+    }
+
+    public double getKilo() {
+        return kilo;
+    }
     private double inkomsten;
+
+    public Vliegveld getVertrek() {
+        return vertrek;
+    }
+    private Vliegveld vertrek;
+    private Vliegveld bestemming;
 
     public Vliegveld getBestemming() {
         return bestemming;
     }
-    private Vliegveld vertrek;
-    private Vliegveld bestemming;
 
     public Vlucht(Vliegveld vertrek, Vliegveld bestemming, int aantal) {
         this.vertrek = vertrek;

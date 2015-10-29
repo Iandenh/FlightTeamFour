@@ -10,7 +10,11 @@ public class Vliegtuig {
     protected Vlucht vlucht;
 
     public Vlucht getVlucht() {
-        return vlucht;
+        if(vlucht != null){
+             return vlucht;
+        } else {
+            return null;
+        }
     }
 
     public void setVlucht(Vlucht vlucht) {
@@ -40,15 +44,17 @@ public class Vliegtuig {
     public void tanken() {
         if (vlucht != null) {
             FlightTeamFour.geld -= vlucht.getKosten();
+            FlightTeamFour.geld += vlucht.getInkomsten();
+            FlightTeamFour.roundeUitgaven += vlucht.getKosten();
+            FlightTeamFour.roundeInkomsten += vlucht.getInkomsten();
         }
     }
 
     public void vliegen() {
         if (vlucht != null) {
             vliegveld = vlucht.getBestemming();
-            FlightTeamFour.geld += vlucht.getInkomsten();
             vlucht = null;
-
+            
         }
     }
 
