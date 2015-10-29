@@ -17,6 +17,9 @@ public class FlightTeamFour {
     public static ArrayList<Vliegtuig> vliegtuigen = new ArrayList<Vliegtuig>();
     public static ArrayList<Vliegveld> vliegvelden = new ArrayList<Vliegveld>();
     public static ArrayList<PassiersGroep> passiers = new ArrayList<PassiersGroep>();
+    
+    public static int roundeInkomsten = 0;
+    public static int roundeUitgaven = 0;
 
     public static void start() {
 
@@ -73,10 +76,41 @@ public class FlightTeamFour {
                         break;
                     case 3:
                         //Vluchuitvoeren
+                        ArrayList<Vlucht> vluchten = new ArrayList<>();
                         for (Vliegtuig vliegtuig : vliegtuigen) {
                             vliegtuig.tanken();
+                            if(vliegtuig.getVlucht() != null){
+                              
+                                vluchten.add(vliegtuig.getVlucht()); 
+                            }
                             vliegtuig.vliegen();
+                        } 
+                        if(vluchten.isEmpty()){
+                            System.out.println("Je hebt nog geen vluchten ingepland");
+                            break;
                         }
+                        System.out.println("+--------------------------+");
+                        System.out.println("|         Samenvatting     | ");
+                        System.out.println("+--------------------------+");
+                        if((roundeInkomsten - roundeUitgaven) > 0){//winst
+                            System.out.println("Deze ronde hebt je " + (roundeInkomsten - roundeUitgaven)
+                            + " winst gemaakt");
+                        } else {
+                            System.out.println("Deze ronde hebt je " + (roundeInkomsten - roundeUitgaven)
+                            + " verlies gemaakt");
+                        }
+                        System.out.println("Gevlogen vluchten:");
+                        for (Vlucht vlucht : vluchten) {
+                            System.out.println(vlucht.getBestemming().getName() + " naar " + vlucht.getVertrek().getName());
+                            if(vlucht.getKilo() != 0){
+                                System.out.println("Met deze vlucht ging " + vlucht.getKilo() + " kilo vracht mee.");
+                            } else {
+                                System.out.println("Met deze vlucht gingen " + vlucht.getAantal() + " passagiers mee.");
+                            }
+                            System.out.println("----");
+                        } 
+                        roundeInkomsten = 0;//ronde reset
+                        roundeUitgaven = 0;
                         ronde++;
                         randomPassiers();
                         break;
