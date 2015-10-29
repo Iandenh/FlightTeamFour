@@ -5,33 +5,22 @@ import java.util.ArrayList;
 
 public class Vliegveld {
 
-    private double aantalPassagiers;
-    private double aantalVracht;
     private final double xpositie;
     private final double ypositie;
     private final String name;
     private ArrayList<PassiersGroep> passiersGroepen = new ArrayList<PassiersGroep>();
     private ArrayList<Vracht> VrachtGroepen = new ArrayList<Vracht>();
 
-    public double getAantalPassagiers() {
-        return aantalPassagiers;
-    }
-
     public ArrayList<PassiersGroep> getPassiersGroep() {
         return passiersGroepen;
-    }
-
-    public double getAantalVracht() {
-        return aantalVracht;
     }
 
     public String getName() {
         return name;
     }
 
-    Vliegveld(String name, double aantalVracht, double xpositie, double ypositie) {
+    Vliegveld(String name, double xpositie, double ypositie) {
         this.name = name;
-        this.aantalVracht = aantalVracht;
         this.xpositie = xpositie;
         this.ypositie = ypositie;
     }
@@ -46,22 +35,17 @@ public class Vliegveld {
 
     public void random() {
         int getal;
+        passiersGroepen.clear();
+        VrachtGroepen.clear();
         for (Vliegveld vliegveld : vliegvelden) {
             if (vliegveld != this) {
                 getal = (int) (Math.random() * 300);
-                if (getal > 100) {
-                    passiersGroepen.add(new PassiersGroep(getal, vliegveld));
-                    
-                }
+                passiersGroepen.add(new PassiersGroep(getal, vliegveld));
 
             }
             if (vliegveld != this) {
                 getal = (int) (Math.random() * 300);
-                if (getal > 100) {
-                    VrachtGroepen.add(new Vracht(getal, vliegveld));
-                    
-                }
-
+                VrachtGroepen.add(new Vracht(getal, vliegveld));
             }
         }
 

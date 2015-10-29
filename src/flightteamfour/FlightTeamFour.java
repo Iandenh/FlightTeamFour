@@ -21,12 +21,13 @@ public class FlightTeamFour {
     public static void start() {
 
         //Voorbereidingen
-        vliegvelden.add(new Vliegveld("AMS", Math.random() * 300, 52.308333, 4.760833));   //Amsterdam
-        vliegvelden.add(new Vliegveld("LAX", Math.random() * 300, 33.9425, -118.408056));  //Los angeles
-        vliegvelden.add(new Vliegveld("PAR", Math.random() * 300, 49.013611, 2.557778));   //Parijs
-        vliegvelden.add(new Vliegveld("SXF", Math.random() * 300, 52.38, 13.5225));        // Berlijn
-        vliegvelden.add(new Vliegveld("JFK", Math.random() * 300, 40.639722, -73.778889)); //new York
-        vliegvelden.add(new Vliegveld("LHR", Math.random() * 300, 51.4775, -0.461389));    //Londen
+        vliegvelden.clear();
+        vliegvelden.add(new Vliegveld("AMS", 52.308333, 4.760833));   //Amsterdam
+        vliegvelden.add(new Vliegveld("LAX", 33.9425, -118.408056));  //Los angeles
+        vliegvelden.add(new Vliegveld("PAR", 49.013611, 2.557778));   //Parijs
+        vliegvelden.add(new Vliegveld("SXF", 52.38, 13.5225));        // Berlijn
+        vliegvelden.add(new Vliegveld("JFK", 40.639722, -73.778889)); //new York
+        vliegvelden.add(new Vliegveld("LHR", 51.4775, -0.461389));    //Londen
 
         randomPassiers();
 
@@ -77,6 +78,7 @@ public class FlightTeamFour {
                             vliegtuig.vliegen();
                         }
                         ronde++;
+                        randomPassiers();
                         break;
                     case 4:
                         // bankzaken
@@ -86,7 +88,7 @@ public class FlightTeamFour {
                         break;
                     case 5:
                         running = false; // Sluit het spel af
-                        break;
+                        return;
                     default:
                         System.out.println("Enter een geldige optie");
                         in.nextLine();
@@ -142,6 +144,7 @@ public class FlightTeamFour {
                                         + passiersGroep.getPassagiers() + " passagiers"
                                         + "is ingepland"
                                 );
+                                passiersGroepen.remove(vluchtKeuzen - 1);
                             }
 
                         }
@@ -164,6 +167,7 @@ public class FlightTeamFour {
                                         + Vrachtgroep.getAantalVracht() + " kilo's"
                                         + "is ingepland"
                                 );
+                                Vrachtgroepen.remove(vluchtKeuzen - 1);
                             }
                         }
 
@@ -171,7 +175,7 @@ public class FlightTeamFour {
 
                 }
             } else {
-                if (in.nextLine().equals("e")) {
+                if (in.next().equals("e")) {
                     running = false;
                 } else {
 
@@ -211,12 +215,12 @@ public class FlightTeamFour {
         System.out.println("\t# Elke rond begin je met geld, de bedoeling is om uiteindelijk zoveel mogelijk winst te maken.");
         System.out.println("\t# Door jou winst is het ook mogelijk om een nieuw vliegtuig te kopen.\n");
 
-        System.out.print("Klik 6 om terug te keren naar het menu: \n");
+        System.out.print("Klik `e` om terug te keren naar het menu: \n");
 
         boolean running = true;
         while (running) {
 
-            if (in.hasNextInt() && in.nextInt() == 6) {
+            if (in.hasNext() && in.next().equals("e")) {
                 running = false;
                 menu();
                 return;
